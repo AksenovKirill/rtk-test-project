@@ -6,6 +6,7 @@ import PostItem from "./PostItem";
 const Posts = () => {
   const dispatch = useDispatch();
   const posts = useSelector((state) => state.post.posts);
+
   const handleClick = () => {
     dispatch(getPosts());
   };
