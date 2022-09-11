@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { v4 } from "uuid";
 import { useDispatch } from "react-redux";
-import { addTodo } from "../store/slices/todoSlice";
+import { addTodo } from "../store/slices/todo/todoSlice";
 
 const Form = () => {
   const dispatch = useDispatch();
@@ -13,22 +13,29 @@ const Form = () => {
       completed: false,
       id: v4(),
     };
-    console.log(newTodo);
     dispatch(addTodo(newTodo));
     setValue("");
   };
 
+  const handleSubmit = (event) => {
+    event.preventDefault();
+  };
+
+  const handleChange = (event) => {
+    setValue(event.target.value);
+  };
+
   return (
-    <form className="w-full flex" onSubmit={(e) => e.preventDefault()}>
+    <form className="w-full flex" onSubmit={handleSubmit}>
       <input
         value={value}
         type="text"
         placeholder="Type something..."
         className="w-full p-1 focus:outline-none focus:border-lime-500 focus: border-2 placeholder:text-sm"
-        onChange={(event) => setValue(event.target.value)}
+        onChange={handleChange}
       />
       <button
-        onClick={() => handleAddTodo()}
+        onClick={handleAddTodo}
         type="submit"
         className="shrink-0 bg-lime-300  hover:bg-lime-400 transition-all px-3 text-sm"
       >

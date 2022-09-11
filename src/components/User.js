@@ -1,17 +1,20 @@
 import React from "react";
 import { useDispatch } from "react-redux";
-import { setFirstName, setLastName } from "../store/slices/userSlice";
+import { setFirstName, setLastName } from "../store/slices/user/userSlice";
 import FirstName from "./FirstName";
 import LastName from "./LastName";
 
 const User = () => {
   const dispatch = useDispatch();
+
   const handleChangeFirstName = (event) => {
     dispatch(setFirstName(event.target.value));
   };
+
   const handleChangeLastName = (event) => {
     dispatch(setLastName(event.target.value));
   };
+
   return (
     <div className="flex flex-col">
       <input
