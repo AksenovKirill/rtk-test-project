@@ -7,10 +7,7 @@ import { useSelector } from "react-redux";
 
 function App() {
   const todos = useSelector((state) => state.todo.todos);
-<<<<<<< HEAD
-=======
 
->>>>>>> 4588f9b3f4b577c343005c565a6f9c16ca4de721
   return (
     <div className="min-h-screen h-full w-screen bg-indigo-400">
       <div className="container mx-auto px-4">
